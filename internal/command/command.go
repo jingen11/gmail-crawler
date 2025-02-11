@@ -64,10 +64,10 @@ func HandleScrap(cmd *Command) error {
 		log.Fatalf("Unable to retrieve Gmail client: %v", err)
 	}
 
-	filters := "has:attachment from:no-reply-aws@amazon.com OR invoice+statements@mail.anthropic.com OR invoice+statements@boot.dev"
+	filters := "has:attachment from:no-reply-aws@amazon.com OR invoice+statements@mail.anthropic.com OR invoice+statements@boot.dev OR mongodb-account@mongodb.com"
 
 	if length == 1 { // date
-		filters = "has:attachment from:no-reply-aws@amazon.com OR invoice+statements@mail.anthropic.com OR invoice+statements@boot.dev after:" + cmd.Arguments[0]
+		filters = "has:attachment from:no-reply-aws@amazon.com OR invoice+statements@mail.anthropic.com OR invoice+statements@boot.dev OR mongodb-account@mongodb.com after:" + cmd.Arguments[0]
 	}
 
 	if length == 2 { // date // from

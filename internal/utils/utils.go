@@ -18,6 +18,7 @@ const (
 	aws       = "no-reply-aws@amazon.com"
 	anthropic = "invoice+statements@mail.anthropic.com"
 	boot      = "invoice+statements@boot.dev"
+	mongodb   = "mongodb-account@mongodb.com"
 )
 
 // Saves a token to a file path.
@@ -92,6 +93,8 @@ func DigPart(payload *gmail.MessagePart, srv *gmail.Service, user, messageId, se
 				subDir = "AWS"
 			} else if strings.Contains(sender, boot) {
 				subDir = "Boot.dev"
+			} else if strings.Contains(sender, mongodb) {
+				subDir = "Mongodb"
 			}
 
 			filePath := fmt.Sprintf("%s/%s/%s", savePath, subDir, payload.Filename)
